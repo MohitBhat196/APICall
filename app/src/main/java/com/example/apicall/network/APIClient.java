@@ -1,4 +1,6 @@
-package com.example.apicall;
+package com.example.apicall.network;
+
+import com.example.apicall.model.PostModel;
 
 import java.util.List;
 

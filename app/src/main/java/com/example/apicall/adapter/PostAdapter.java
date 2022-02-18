@@ -1,4 +1,4 @@
-package com.example.apicall;
+package com.example.apicall.adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -9,17 +9,24 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.apicall.R;
+import com.example.apicall.model.PostModel;
+
 import java.util.List;
 
 public class PostAdapter extends RecyclerView.Adapter<PostAdapter.PostViewHolder> {
 
-    List<PostModel> userList;
-    Context context;
+    private  List<PostModel> userList;
+    private Context context;
 
-    public PostAdapter(Context context, List<PostModel>users){
+    public PostAdapter(Context context, List<PostModel>userList){
         this.context = context;
-        userList = users;
+        this.userList = userList;
 
+    }
+    public void setUserList(List<PostModel>userList){
+        this.userList = userList;
+        notifyDataSetChanged();
     }
     @NonNull
     @Override
@@ -40,7 +47,10 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.PostViewHolder
 
     @Override
     public int getItemCount() {
-        return userList.size();
+        if(userList != null){
+        return this.userList.size();
+    }
+        return 0;
     }
 
     public class PostViewHolder extends RecyclerView.ViewHolder{

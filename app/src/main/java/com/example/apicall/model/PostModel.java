@@ -1,4 +1,4 @@
-package com.example.apicall;
+package com.example.apicall.model;
 
 public class PostModel {
 
