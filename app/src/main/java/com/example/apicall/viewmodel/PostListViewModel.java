@@ -23,6 +23,8 @@ public class PostListViewModel extends ViewModel {
     }
 
     public MutableLiveData<List<PostModel>>getUsersViewObserver(){
+
+
         return usersView;
     }
 

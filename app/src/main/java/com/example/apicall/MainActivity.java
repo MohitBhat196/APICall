@@ -30,13 +30,13 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
         recyclerView = findViewById(R.id.recyclerView);
         noResult = findViewById(R.id.noResult);
-        recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         adapter = new PostAdapter(this, postModelList);
         recyclerView.setAdapter(adapter);
-
+        noResult.setVisibility(View.GONE);
 
 
        viewModel = ViewModelProviders.of(this).get(PostListViewModel.class);
@@ -46,9 +46,7 @@ public class MainActivity extends AppCompatActivity {
                if(postModels != null ){
                    postModelList = postModels;
                    adapter.setUserList(postModels);
-                   noResult.setVisibility(View.GONE);
-               }else{
-                   noResult.setVisibility(View.VISIBLE);
+
                }
            }
 
