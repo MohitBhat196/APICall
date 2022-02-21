@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
     private List<PostModel>postModelList;
     private PostAdapter adapter;
     private PostListViewModel viewModel;
-    TextView noResult;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,11 +32,10 @@ public class MainActivity extends AppCompatActivity {
 
 
         recyclerView = findViewById(R.id.recyclerView);
-        noResult = findViewById(R.id.noResult);
+
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         adapter = new PostAdapter(this, postModelList);
         recyclerView.setAdapter(adapter);
-        noResult.setVisibility(View.GONE);
 
 
        viewModel = ViewModelProviders.of(this).get(PostListViewModel.class);
